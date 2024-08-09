@@ -164,3 +164,11 @@ function sampev.onShowTextDraw(id, data)
         sendClickTextdraw(id)
     end
 end
+
+function sampev.onSendClientJoin(version, mod, nickname, challengeResponse, joinAuthKey, clientVer, challengeResponse2)
+    mod = "1"
+    clientVer = "Arizona PC"
+    challengeResponse = "1897000518"
+    challengeResponse2 = "1897000518"
+    return {version, mod, nickname, challengeResponse, joinAuthKey, clientVer, challengeResponse2}
+end
