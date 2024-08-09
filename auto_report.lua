@@ -1,5 +1,5 @@
-local sampev = require("samp.events")
 require("addon")
+sampev = require 'samp.events'
 
 local questions = {
     "Какой командой показать паспорт?",
@@ -82,11 +82,16 @@ local questions = {
     "Как использовать активный аксессуар?"
 }
 
+function onLoad()
+	print("[AutoReport] LOADED")
+end
 
 function sampev.onShowDialog(dialogId, style, title, button1, button2, text)
+    
     if title:match('Дополнительная информация') then
         return false
     end
+
     if id == 1 then
         if text:match('Добро пожаловать') then
             sendDialogResponse(id, 1, -1, "arizonarp")
@@ -130,7 +135,7 @@ function sampev.onShowDialog(dialogId, style, title, button1, button2, text)
     end
 
     if dialogId == 1332 then -- Окно с оценкой ответа
-        sendDialogResponse(dialogId, 0, 0, "")
+        sendDialogResponse(dialogId, 1, -1, "")
         return false;
     end
 end
